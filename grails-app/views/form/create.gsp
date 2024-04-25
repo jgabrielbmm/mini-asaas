@@ -6,7 +6,13 @@
     <asset:stylesheet src="styles.css"/>
 </head>
 <body>
+
     <form  id='myForm' action="${ createLink(controller: "form", action: "sendFormData") }" method="post">
+        <g:if test="${ flash.sentForm }">
+           <div class="sucess-submit" id="msg-success">
+                <p>Formulário enviado com sucesso</p>
+            </div>
+        </g:if>
         <label>
             <span>Nome</span>
             <input type="text" id="input" name="name" placeholder="Informe seu nome" required >
@@ -51,6 +57,8 @@
 
         <button type="submit"> Enviar </button>
         <%-- <input type="submit" > --%>
+ 
+        
     </form>
 
     <asset:javascript src="scripts.js"/>
